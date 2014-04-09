@@ -10,7 +10,7 @@ from setuptools import setup
 setup(
     name='Flask-DynStatic',
     version='0.0.1',
-    url='https://github.com/mkaplenko/flask-page-to-static',
+    url='https://github.com/mkaplenko/flask-dynstatic',
     license='BSD',
     author='Mikhail Kaplenko',
     author_email='mkaplenko@brpr.ru',
