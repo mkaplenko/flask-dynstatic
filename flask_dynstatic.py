@@ -1,5 +1,13 @@
 __author__ = 'mkaplenko'
 
 
-def test():
-    return 'Test dynstatic'
+views = []
+
+
+def to_static_html(func):
+    def wrapper(*args, **kwargs):
+        if func not in views:
+            views.append(func)
+            print views
+        return func(*args, **kwargs)
+    return wrapper
