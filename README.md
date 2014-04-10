@@ -2,6 +2,14 @@ flask-dynstatic
 ===============
 Simple decorator for generating static HTML files (error pages for example) from flask views.
 
+Installation
+------------
+The simplest and recommended way to install Flask-DynStatic is installation via pip:
+
+```bash
+pip install git+git://github.com/mkaplenko/flask-dynstatic
+```
+
 How to use
 ----------
 
