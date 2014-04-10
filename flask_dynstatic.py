@@ -1,24 +1,28 @@
+from flask import current_app
 from functools import wraps
 import os
 
-static_root = os.path.join(os.path.dirname(__file__), 'static')
 
-views = []
+class DynStatic(object):
+    views = []
 
+    def __init__(self, app=None):
+        self.app = app
 
-def to_static_html(path):
-    def decorator(func):
-        if func not in views:
-                views.append((path, func))
+    @staticmethod
+    def construct_html():
+        for view in DynStatic.views:
+            with open(os.path.join(current_app.config['DYNSTATIC_ROOT'], view[0]), 'w') as html_file:
+                html_file.write(view[1]())
 
-        @wraps(func)
-        def wrapper(*args, **kwargs):
-            return func(*args, **kwargs)
-        return wrapper
-    return decorator
+    @staticmethod
+    def to_static_html(path):
+        def decorator(func):
+            if func not in DynStatic.views:
+                    DynStatic.views.append((path, func))
 
-
-def construct_html():
-    for view in views:
-        with open(os.path.join(static_root, view[0]), 'w') as html_file:
-            html_file.write(view[1]())
+            @wraps(func)
+            def wrapper(*args, **kwargs):
+                return func(*args, **kwargs)
+            return wrapper
+        return decorator
