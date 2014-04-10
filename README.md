@@ -1,6 +1,6 @@
 flask-dynstatic
 ===============
-Simple decorator for generating static HTML error pages from flask views.
+Simple decorator for generating static HTML files (for error pages) from flask views.
 
 How to use
 ----------
@@ -25,6 +25,8 @@ def test():
     return 'Func arr'
 ```
 
+Decorator required path to the outputting HTML file related to the DYNSTATIC_ROOT DIRECTORY.
+
 Register managment command
 --------------------------
 
@@ -32,4 +34,9 @@ Register managment command
 from flask_dynstatic import GetStatic
 
 manager.add_command('statichtml', GetStatic())
+```
+Then you can generate static HTML files from outputting by decorated views to the DYNSTATIC_ROOT DIRECTORY by use manage command:
+
+```bash
+./manage.py statichtml
 ```
