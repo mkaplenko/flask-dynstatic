@@ -40,3 +40,17 @@ Then you can generate static HTML files from outputting by decorated views to th
 ```bash
 ./manage.py statichtml
 ```
+
+Testing
+-------
+For testing you need to install flask-testing extension.
+Simplest way to install flask-testing is installation via pip:
+```bash
+pip install flask-testing
+```
+
+You can test Flask-DynStatic by run test cases from directory which Flask-DynStatic has been installed:
+
+```bash
+python test.py
+```
