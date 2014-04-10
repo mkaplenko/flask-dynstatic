@@ -1,4 +1,4 @@
-flask-dynstatic
+Flask-DynStatic
 ===============
 Simple decorator for generating static HTML files (error pages for example) from flask views.
 
