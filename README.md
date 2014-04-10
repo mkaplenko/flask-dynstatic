@@ -1,6 +1,6 @@
 flask-dynstatic
 ===============
-Simple decorator for generating static HTML files (for error pages) from flask views.
+Simple decorator for generating static HTML files (error pages for example) from flask views.
 
 How to use
 ----------
